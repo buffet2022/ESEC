@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.25)
 project(ESEC)
 
-set(CMAKE_CXX_STANDARD )
+set(CMAKE_CXX_STANDARD 11)
 
 add_executable(ESEC main.cpp
         src/1/hgc.cpp src/1/aigc.cpp
@@ -21,5 +21,4 @@ add_executable(ESEC main.cpp
         src/15/hgc.cpp src/15/gpt35.cpp src/15/gpt4.cpp
         src/16/hgc.cpp src/16/gpt35.cpp src/16/gpt4.cpp
         src/17/hgc.cpp src/17/gpt35.cpp src/17/gpt4.cpp
-        src/18/hgc.cpp src/18/gpt35.cpp src/18/gpt4.cpp
-        common.h)
+        src/18/hgc.cpp src/18/gpt35.cpp src/18/gpt4.cpp)
