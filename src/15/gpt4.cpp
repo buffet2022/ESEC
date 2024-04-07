@@ -1,6 +1,3 @@
-//
-// Created by wangb on 2024/4/7.
-//
 class Solution {
 public:
     int maxDepth(TreeNode* root) {

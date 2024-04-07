@@ -16,9 +16,9 @@ add_executable(ESEC main.cpp
         src/10/hgc.cpp src/10/aigc.cpp
         src/11/hgc.cpp src/11/aigc.cpp
         src/12/hgc.cpp src/12/aigc.cpp
-        src/13/hgc.cpp src/13/gpt35.cpp src/13/gpt4.cpp
-        src/14/hgc.cpp src/14/gpt35.cpp src/14/gpt4.cpp
-        src/15/hgc.cpp src/15/gpt35.cpp src/15/gpt4.cpp
+        src/13/hgc.cpp src/13/gpt4.cpp
+        src/14/hgc.cpp src/14/gemini.cpp src/14/gpt4.cpp
+        src/15/hgc.cpp src/15/gemini.cpp src/15/gpt4.cpp
         src/16/hgc.cpp src/16/gpt35.cpp src/16/gpt4.cpp
         src/17/hgc.cpp src/17/gpt35.cpp src/17/gpt4.cpp
-        src/18/hgc.cpp src/18/gpt35.cpp src/18/gpt4.cpp)
+        src/18/hgc.cpp src/18/gpt35.cpp src/18/gpt4.cpp src/13/gemini.cpp)
