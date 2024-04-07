@@ -1,18 +1,29 @@
 class Solution {
 public:
-    int subarraySum(vector<int>& nums, int k) {
-        int preSum = 0;  // 前缀和
-        int ans = 0;     // 最后答案
-        unordered_map<int, int> mp;
-        mp[0] = 1;       // mp初始化
-        for(int num : nums){
-            preSum += num;  // 遍历到当前数字的前缀和preSum[j]
-            if(mp.count(preSum - k)){   // 判断preSum[i-1] = preSum[j] - k是否存在
-                ans += mp[preSum - k];  // 有几个区间前缀和等于preSum-k的区间，答案就加上几
+//1.按w从小到大排序
+//2.如果w相同,按h从大到小排序
+//3.[2,3] [5,4] [6,7] [6,4]
+    int q[10010];
+    int maxEnvelopes(vector<vector<int>>& e) {
+        int n = e.size();
+        sort(e.begin(),e.end(),[](vector<int>a,vector<int>b){
+            return a[0] == b[0] ? a[1] > b[1] : a[0] < b[0];
+        });
+        vector<int>q;
+        for(int i = 0; i < n; i ++){
+            int val = e[i][1];
+            if(!q.size()||q.back()< val) q.push_back(val);
+            else {
+                int l = 0, r = q.size() - 1;
+                while(l<r){
+                    int mid = l + r >> 1;
+                    if(q[mid]>=val) r = mid;
+                    else l = mid + 1;
+                }
+                q[r] = min(q[r],val);
             }
-            mp[preSum] ++;    // 前缀和为preSum的区间个数+1
-        }
 
-        return ans;
+        }
+        return q.size();
     }
 };

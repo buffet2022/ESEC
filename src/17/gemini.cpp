@@ -1,18 +1,31 @@
 class Solution {
 public:
-    int subarraySum(vector<int>& nums, int k) {
-        unordered_map<int, int> prefix_sum_count;
-        prefix_sum_count[0] = 1; // 前缀和为 0 的子数组有 1 个
-        int prefix_sum = 0, count = 0;
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        int m = nums1.size(), n = nums2.size();
+        vector<int> merged(m + n);
 
-        for (int num : nums) {
-            prefix_sum += num;
-            if (prefix_sum_count.find(prefix_sum - k) != prefix_sum_count.end()) {
-                count += prefix_sum_count[prefix_sum - k];
+        int i = 0, j = 0, k = 0;
+        while (i < m && j < n) {
+            if (nums1[i] <= nums2[j]) {
+                merged[k++] = nums1[i++];
+            } else {
+                merged[k++] = nums2[j++];
             }
-            prefix_sum_count[prefix_sum]++;
         }
 
-        return count;
+        while (i < m) {
+            merged[k++] = nums1[i++];
+        }
+
+        while (j < n) {
+            merged[k++] = nums2[j++];
+        }
+
+        int mid = (m + n) / 2;
+        if ((m + n) % 2 == 0) {
+            return (double)(merged[mid] + merged[mid - 1]) / 2.0;
+        } else {
+            return (double)merged[mid];
+        }
     }
 };
