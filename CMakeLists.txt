@@ -3,4 +3,4 @@ project(ESEC)
 
 set(CMAKE_CXX_STANDARD )
 
-add_executable(ESEC main.cpp content/*)
+add_executable(ESEC main.cpp src/*)
